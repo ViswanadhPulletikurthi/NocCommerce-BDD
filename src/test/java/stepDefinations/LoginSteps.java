@@ -1,16 +1,17 @@
 package stepDefinations;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import PageObjects.LoginPage;
 import io.cucumber.java.en.*;
 
 import java.time.Duration;
 
-import org.junit.Assert;
 
 public class LoginSteps {
     WebDriver driver;
@@ -29,7 +30,7 @@ public class LoginSteps {
     public void user_should_able_to_see_the_orange_hrm_logo_on_the_login_page() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(lp.logo));  // Wait for logo to be visible
-        Assert.assertTrue("OrangeHRM logo is NOT displayed.", lp.isLogoDisplayed());
+        Assert.assertTrue(lp.isLogoDisplayed());
     }
     @When("User enters username as {string} and password as {string}")
     public void user_enters_username_as_and_password_as(String username, String password) throws InterruptedException {
